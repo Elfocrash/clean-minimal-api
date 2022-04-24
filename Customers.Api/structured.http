@@ -1,0 +1,33 @@
+### Get all users
+GET https://localhost:5001/customers
+Accept: application/json
+
+### Get user by id
+GET https://localhost:5001/customers/
+Accept: application/json
+
+### Create customer
+POST https://localhost:5001/customers
+Content-Type: application/json
+
+{
+  "username": "nickchapsas",
+  "fullName": "Nick Chapsas",
+  "email": "nick@nickchapsas.com",
+  "dateOfBirth": "1993-04-20"
+}
+
+### Update customer
+PUT https://localhost:5001/customers/
+Content-Type: application/json
+
+{
+  "username": "chapsas",
+  "fullName": "Nick Chapsas",
+  "email": "nick@nickchapsas.com",
+  "dateOfBirth": "1993-04-20"
+}
+
+### Delete user
+DELETE https://localhost:5001/customers/
+Accept: application/json
