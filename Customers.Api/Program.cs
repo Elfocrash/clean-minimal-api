@@ -4,11 +4,14 @@ using Customers.Api.Repositories;
 using Customers.Api.Services;
 using Customers.Api.Validation;
 using FastEndpoints;
+using FastEndpoints.Swagger;
 
 var builder = WebApplication.CreateBuilder(args);
 var config = builder.Configuration;
 
 builder.Services.AddFastEndpoints();
+builder.Services.AddSwaggerDoc();
+
 builder.Services.AddSingleton<IDbConnectionFactory>(_ =>
     new SqliteConnectionFactory(config.GetValue<string>("Database:ConnectionString")));
 builder.Services.AddSingleton<DatabaseInitializer>();
@@ -28,6 +31,9 @@ app.UseFastEndpoints(x =>
         };
     };
 });
+
+app.UseOpenApi();
+app.UseSwaggerUi3(s => s.ConfigureDefaults());
 
 var databaseInitializer = app.Services.GetRequiredService<DatabaseInitializer>();
 await databaseInitializer.InitializeAsync();

@@ -7,11 +7,11 @@ using Microsoft.AspNetCore.Authorization;
 namespace Customers.Api.Endpoints;
 
 [HttpGet("customers"), AllowAnonymous]
-public class GetAllCustomersEndpoints : EndpointWithoutRequest<GetAllCustomersResponse>
+public class GetAllCustomersEndpoint : EndpointWithoutRequest<GetAllCustomersResponse>
 {
     private readonly ICustomerService _customerService;
 
-    public GetAllCustomersEndpoints(ICustomerService customerService)
+    public GetAllCustomersEndpoint(ICustomerService customerService)
     {
         _customerService = customerService;
     }
