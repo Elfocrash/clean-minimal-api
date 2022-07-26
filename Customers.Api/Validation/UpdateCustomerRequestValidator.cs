@@ -1,9 +1,10 @@
 ﻿using Customers.Api.Contracts.Requests;
+using FastEndpoints;
 using FluentValidation;
 
 namespace Customers.Api.Validation;
 
-public class UpdateCustomerRequestValidator : AbstractValidator<UpdateCustomerRequest>
+public class UpdateCustomerRequestValidator : Validator<UpdateCustomerRequest>
 {
     public UpdateCustomerRequestValidator()
     {
